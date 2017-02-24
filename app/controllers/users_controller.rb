@@ -10,7 +10,14 @@ class UsersController < ApplicationController
     # render json: @ideas
     @user = User.find(session[:user_id])
     @user_ideas = User.find(@id).ideas
-    @user_likes = Like.where(user: User.find(@id))
+    # @user_likes = Like.where(user: User.find(@id))
+    @liked_ideas = Like.where(user: User.find(1))
+
+
+    # Like.where(user: User.find(1)).first.idea.idea
+    # @one_idea_liked_by_user = Like.where(user: User.find(@id)).first
+
+    # render text: @one_idea_liked_by_user
 
     # render json: @user_likes[0].ideas
 

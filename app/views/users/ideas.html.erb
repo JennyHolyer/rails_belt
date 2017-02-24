@@ -18,16 +18,16 @@
       <div class="panel-body">  <%= idea.idea %></div>
       <div class="panel-heading">Posted by: <%= idea.user.first_name %>
 
+          <a href="/like_idea/<%= idea.id %>" data-method = "post">
           <button type="button" name="button" class="btn btn-default">
-                  <a href="/like_idea/<%= idea.id %>" data-method = "post">
                   <span class="glyphicon glyphicon-thumbs-up"></span>
                   </a>
                 </button>
+                <a href="/unlike_idea/<%= idea.id %>" data-method = "post">
                 <button type="button" name="button" class="btn btn-default">
-                  <a href="/unlike_idea/<%= idea.id %>" data-method = "post">
                     <span class="glyphicon glyphicon-thumbs-down"></span>
-                  </a>
                 </button>
+            </a>
 
                 <strong>
                   <a href="/ideas/<%= idea.id %>">
@@ -54,8 +54,8 @@
 
   <h1>Ideas I like</h1>
   <div class="panel panel-success">
-    <% @user_likes.each do | liked_idea | %>
-    <div class="panel-body"><%= liked_idea.idea %></div>
+    <% @liked_ideas.each do | liked_idea | %>
+    <div class="panel-body"><%= liked_idea.idea.idea %></div>
     <div class="panel-heading">
       <a href="/unlike_idea/<%= liked_idea.id %>" data-method = "post">
       <button type="button" name="button" class="btn btn-default">
