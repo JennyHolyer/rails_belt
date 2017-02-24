@@ -1,0 +1,31 @@
+<div class="col-md-8">
+  <h3><%= @user.first_name%>!</h3>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+
+      <h3>People who like this idea!</h3>
+      <% @users_who_like.each do |list| %>
+
+      <p>Idea: <%= @idea.idea %></p>
+      <p>Liked by:: <%= list.user.first_name %></p>
+
+      <a href='/user/<%= list.user.id %>'><button class="btn btn-success" type="button" name="button">Back to profile</button></a>
+      <% end %>
+
+  </div>
+</div>
+
+</div>
+
+
+
+
+<div class="col-md-4">
+
+  <h4>Bright Ideas
+    <a href="/ideas"><button class="btn btn-success" type="button" name="button">All Ideas</button></a>
+    <a href="/logout" data-method="post"><button class="btn btn-danger" type="button" name="button">Logout</button></a></h3>
+
+
+
+</div>

@@ -1,0 +1,69 @@
+<div class="col-md-8">
+    <h3>Welcome, <%= @user.first_name%>!</h3>
+    <% if flash[:success] %>
+      <div class="alert alert-success"><%= flash[:success] %></div>
+    <% end %>
+
+  <form class="form-group" action="/post_idea" method="post">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <textarea class="form-control" name="idea" rows="5" id="comment" placeholder="Post your ideas here..."></textarea>
+    <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+    <hr>
+    <input class="btn btn-success" type="submit" name="" value="Post Idea">
+  </form>
+
+
+  <% @ideas.each do |idea| %>
+  <div class="panel panel-default">
+      <div class="panel-body">  <%= idea.idea %></div>
+      <div class="panel-heading">Posted by: <%= idea.user.first_name %>
+
+          <button type="button" name="button" class="btn btn-default">
+                  <a href="/like_idea/<%= idea.id %>" data-method = "post">
+                  <span class="glyphicon glyphicon-thumbs-up"></span>
+                  </a>
+                </button>
+                <button type="button" name="button" class="btn btn-default">
+                  <a href="/unlike_idea/<%= idea.id %>" data-method = "post">
+                    <span class="glyphicon glyphicon-thumbs-down"></span>
+                  </a>
+                </button>
+
+                <strong>
+                  <a href="/ideas/<%= idea.id %>">
+                  <%= idea.likes.count %> People like this idea</strong>
+                  </a>
+
+        <% if idea.user.id == @user.id %>
+      <a href='/delete/<%= idea.id %>'
+      <button class="btn btn-danger" type="button" name="button">Delete</button>
+      </a>
+      <% end %>
+      </div>
+ </div>
+  <% end %>
+</div>
+
+
+<div class="col-md-4">
+
+  <h4> Ideas
+    <a href="/user/<%= @user.id %>"><button class="btn btn-success" type="button" name="button">My Ideas</button></a>
+
+    <a href="/logout" data-method="post"><button class="btn btn-danger" type="submit" name="button">Logout</button></a></h3>
+
+  <h1>Ideas I like</h1>
+  <div class="panel panel-success">
+    <% @user_likes.each do | liked_idea | %>
+    <div class="panel-body"><%= liked_idea.idea %></div>
+    <div class="panel-heading">
+      <a href="/unlike_idea/<%= liked_idea.id %>" data-method = "post">
+      <button type="button" name="button" class="btn btn-default">
+        <span class="glyphicon glyphicon-thumbs-down"></span>
+        Unlike this idea
+      </button>
+    </a>
+  </div>
+  <% end %>
+
+</div>

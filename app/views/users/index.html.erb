@@ -1,0 +1,65 @@
+<div class="col-md-3">
+</div>
+<div class="col-md-3">
+  <h1>Login</h1>
+
+  <form action="/users/login" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <div class="input-group">
+    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+    <input id="email" type="text" class="form-control" name="email" placeholder="Email">
+  </div>
+  <br>
+  <div class="input-group">
+    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+    <input id="password" type="password" class="form-control" name="password" placeholder="Password">
+  </div>
+  <br>
+  <input type="submit" class="btn btn-info" name="" value="Login">
+</form>
+</div>
+<div class="col-md-3">
+
+
+</div>
+<div class="col-md-3">
+</div>
+<div class="col-md-3">
+    <h1>Register</h1>
+    <br>
+
+    <form action="/register" method="post">
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+        <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+            <input id="email" type="text" class="form-control" name="first_name" placeholder="First Name">
+        </div>
+        <br>
+
+        <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+            <input id="email" type="text" class="form-control" name="last_name" placeholder="Last Name">
+        </div>
+        <br>
+
+        <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+            <input id="email" type="text" class="form-control" name="email" placeholder="Email">
+        </div>
+        <br>
+
+        <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+            <input id="password" type="password" class="form-control" name="password" placeholder="Password">
+        </div>
+        <br>
+        <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+            <input id="password" type="password" class="form-control" name="password_confirmation" placeholder="Confirm Password">
+        </div>
+        <br>
+        <input type="submit" class="btn btn-info" name="" value="Register">
+    </form>
+</div>
+<div class="col-md-4">
+</div>
