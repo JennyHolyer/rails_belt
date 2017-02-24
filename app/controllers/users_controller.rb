@@ -11,7 +11,7 @@ class UsersController < ApplicationController
     @user = User.find(session[:user_id])
     @user_ideas = User.find(@id).ideas
     # @user_likes = Like.where(user: User.find(@id))
-    @liked_ideas = Like.where(user: User.find(1))
+    @liked_ideas = Like.where(user: User.find(@id))
 
 
     # Like.where(user: User.find(1)).first.idea.idea
